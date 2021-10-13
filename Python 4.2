@@ -1,0 +1,54 @@
+Remediation
+Upgrade opencv-python to version 4.2.0.32 or later. For example:
+
+opencv-python>=4.2.0.32
+Always verify the validity and compatibility of suggestions with your codebase. Please note that not every vulnerability below has a patched version available.
+
+Details
+CVE-2019-5064
+high severity
+Vulnerable versions: <= 4.1.2.30
+Patched version: 4.2.0.32
+An exploitable heap buffer overflow vulnerability exists in the data structure persistence functionality of OpenCV, version 4.1.0 (corresponds with OpenCV-Python version 4.1.2.30). A specially crafted JSON file can cause a buffer overflow, resulting in multiple heap corruptions and potentially code execution. An attacker can provide a specially crafted file to trigger this vulnerability.
+
+CVE-2019-5063
+high severity
+Vulnerable versions: <= 4.1.0.25
+Patched version: No fix
+An exploitable heap buffer overflow vulnerability exists in the data structure persistence functionality of OpenCV 4.1.0 (corresponds with OpenCV-Python 4.1.0.25). A specially crafted XML file can cause a buffer overflow, resulting in multiple heap corruptions and potential code execution. An attacker can provide a specially crafted file to trigger this vulnerability.
+
+CVE-2019-19624
+moderate severity
+Vulnerable versions: <= 4.1.0.24
+Patched version: 4.1.0.25
+An out-of-bounds read was discovered in OpenCV before 4.1.1 (OpenCV-Python before 4.1.0.25). Specifically, variable coarsest_scale is assumed to be greater than or equal to finest_scale within the calc()/ocl_calc() functions in dis_flow.cpp. However, this is not true when dealing with small images, leading to an out-of-bounds read of the heap-allocated arrays Ux and Uy.
+
+CVE-2019-9423
+high severity
+Vulnerable versions: <= 4.1.1.26
+Patched version: No fix
+In opencv calls that use libpng, there is a possible out of bounds write due to a missing bounds check. This could lead to local escalation of privilege with no additional execution privileges required. User interaction is not required for exploitation. Product: AndroidVersions: Android-10Android ID: A-110986616
+
+CVE-2019-16249
+moderate severity
+Vulnerable versions: <= 4.1.1.26
+Patched version: 4.1.2.30
+OpenCV 4.1.1 has an out-of-bounds read in hal_baseline::v_load in core/hal/intrin_sse.hpp when called from computeSSDMeanNorm in modules/video/src/dis_flow.cpp.
+
+CVE-2019-14493
+high severity
+Vulnerable versions: <= 4.1.0.25
+Patched version: 4.1.1.26
+An issue was discovered in OpenCV before 4.1.1 (OpenCV-Python before 4.1.1.26). There is a NULL pointer dereference in the function cv::XMLParser::parse at modules/core/src/persistence.cpp.
+
+CVE-2019-15939
+moderate severity
+Vulnerable versions: <= 4.1.0.25
+Patched version: 4.1.1.26
+An issue was discovered in OpenCV 4.1.0 (OpenCV-Python 4.1.0.25). There is a divide-by-zero error in cv::HOGDescriptor::getDescriptorSize in modules/objdetect/src/hog.cpp.
+
+CVE-2019-14492
+high severity
+Vulnerable versions: >= 4.0.0.21, <= 4.1.0.25
+Patched version: 4.1.1.26
+An issue was discovered in OpenCV before 3.4.7 and 4.x before 4.1.1 (OpenCV-Python before 3.4.7.28 and 4.x before 4.1.1.26). There is an out of bounds read/write in the function HaarEvaluator::OptFeature::calc in modules/objdetect/src/cascadedetect.hpp, which leads to denial of service.
